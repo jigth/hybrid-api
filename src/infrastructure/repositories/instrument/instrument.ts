@@ -20,8 +20,9 @@ class InstrumentRepository implements IRepository<Instrument>, IInstrumentReposi
         return _db.instruments.filter((i: any) => i.name === name, []);
     }
 
-    addInstrument(newInstrument: Instrument) {
+    create(newInstrument: Instrument): Instrument {
         _db.instruments.push(newInstrument);
+        return newInstrument;
     }
 }
 

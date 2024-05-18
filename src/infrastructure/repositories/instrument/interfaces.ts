@@ -4,4 +4,5 @@ import { IRepository } from "../IRepository";
 export interface IInstrumentRepository<T extends Instrument> extends IRepository<Instrument> {
     getByName(name: string): T[];
     getByType(type: string): T[];
+    create(newInstrument: T): Instrument;
 }

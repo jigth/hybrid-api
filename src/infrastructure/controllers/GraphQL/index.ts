@@ -19,6 +19,8 @@ const songsRepo: ISongRepository<Song> = songRepository
 
 const graphqlRouter: Router = Router();
 
+const TEN_THOUSAND_MILLIONS = 10000000000; // Arbitrary number I liked to generate "unique" integer IDs. A.K.A: "Ten Billions"
+
 const schema = createSchema({
     typeDefs: `#graphql
         type Instrument {
@@ -55,6 +57,15 @@ const schema = createSchema({
             songs: [Song!]!
             songById: [Song!]!
         },
+
+        input NewInstrumentInput {
+            name: String!
+            type: String!
+        }
+
+        type Mutation {
+            createInstrument(newInstrument: NewInstrumentInput!): Instrument!
+        }
     `,
     resolvers: {
         Query: {
@@ -97,9 +108,21 @@ const schema = createSchema({
 
         Song: {
             performer(parent: any) {
-                return performersRepo.getAll().find((performer: Song) =>
+                return performersRepo.getAll().find((performer: Performer) =>
                     performer.id === parent.performer_id
                 , null);
+            }
+        },
+
+        Mutation: {
+            createInstrument(_, args: any): Instrument {
+                const id = Math.floor(Math.random() * TEN_THOUSAND_MILLIONS).toString();
+                const newInstrument: Instrument = {
+                    id,
+                    name: args.newInstrument.name,
+                    type: args.newInstrument.type
+                }
+                return instrumentsRepo.create(newInstrument)
             }
         }
 
