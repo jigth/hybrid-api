@@ -10,7 +10,7 @@ This project is a PoC that may be implemented in [Feat It Healthy](https://githu
 
 * It is in already a significant effort IMO to keep the architecture clean and make an API that supports both REST and GraphQL endpoints with their logic so I didn't use a real database initially.
 
-* GraphQL Express was used instead of ApolloGraphQL because setting up an Hybrid RESTful+GraphQL API is simpler and I don't use subscriptions for now (GraphQL's real time data).
+* GraphQL Yoga was used instead of ApolloGraphQL because setting up an Hybrid RESTful+GraphQL API is simpler and I don't use subscriptions for now (GraphQL's real time data).
 
 ## How to run
 
