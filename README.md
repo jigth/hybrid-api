@@ -34,7 +34,7 @@ $ yarn dev # Or npm run dev
 
 * Singular names will be prefered over plural names for simplicity in the project's language.
 
-* "I" will usually be a prefix for interfaces (e.x: IRepository).
+* "I" will usually be a prefix for interfaces (e.g: IRepository).
 
 * If something belongs to a domain entity, it should be encapsulated in a folder with the entity's name (in singular)
 
