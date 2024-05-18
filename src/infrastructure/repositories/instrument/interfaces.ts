@@ -1,7 +1,7 @@
-import { RepoTypes } from "../../../domain/models/shared/repository/repository";
+import { Instrument } from "../../../domain/models/instrument/instrument";
 import { IRepository } from "../IRepository";
 
-export interface IInstrumentRepository<T extends RepoTypes> extends IRepository<T> {
+export interface IInstrumentRepository<T extends Instrument> extends IRepository<Instrument> {
     getByName(name: string): T[];
     getByType(type: string): T[];
 }

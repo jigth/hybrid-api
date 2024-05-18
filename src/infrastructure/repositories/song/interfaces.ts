@@ -1,5 +1,5 @@
-import { RepoTypes } from "../../../domain/models/shared/repository/repository";
+import { Song } from "../../../domain/models/song/song";
 import { IRepository } from "../IRepository";
 
-export interface ISongRepository<T extends RepoTypes> extends IRepository<T> {
+export interface ISongRepository<T extends Song> extends IRepository<T> {
 }

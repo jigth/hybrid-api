@@ -3,7 +3,6 @@ import { instrumentRepository } from "../../repositories/instrument/instrument";
 import { performerRepository } from "../../repositories/performer/performer";
 import { songRepository } from "../../repositories/song/song";
 import { IInstrumentRepository } from "../../repositories/instrument/interfaces";
-import { RepoTypes } from "../../../domain/models/shared/repository/repository";
 import { ISongRepository } from "../../repositories/song/interfaces";
 import { IPerformerRepository } from "../../repositories/performer/interfaces";
 
@@ -14,9 +13,9 @@ import { Instrument } from "../../../domain/models/instrument/instrument";
 
 // Here I make the controller code dependent on interfaces. The initialization part may change as needed.
 // The fact that this controller is dependent on interfaces instead of implementations helps keeping code more decoupled.
-const instrumentsRepo: IInstrumentRepository<RepoTypes> = instrumentRepository
-const performersRepo: IPerformerRepository<RepoTypes> = performerRepository
-const songsRepo: ISongRepository<RepoTypes> = songRepository
+const instrumentsRepo: IInstrumentRepository<Instrument> = instrumentRepository
+const performersRepo: IPerformerRepository<Performer> = performerRepository
+const songsRepo: ISongRepository<Song> = songRepository
 
 const graphqlRouter: Router = Router();
 
